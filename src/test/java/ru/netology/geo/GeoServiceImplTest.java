@@ -1,3 +1,5 @@
+package ru.netology.geo;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -5,12 +7,12 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import ru.netology.entity.Country;
 import ru.netology.entity.Location;
-import ru.netology.geo.GeoServiceImpl;
 
 import java.util.stream.Stream;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasProperty;
 
 public class GeoServiceImplTest {
     public GeoServiceImpl geoService;
@@ -42,7 +44,6 @@ public class GeoServiceImplTest {
         final Location actual = this.geoService.byIp(ip);
 
         // assert
-        assertThat(actual, instanceOf(Location.class));
         assertThat(expected, hasProperty("city", equalTo(actual.getCity())));
         assertThat(expected, hasProperty("country", equalTo(actual.getCountry())));
         assertThat(expected, hasProperty("street", equalTo(actual.getStreet())));

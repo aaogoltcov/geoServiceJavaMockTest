@@ -1,15 +1,15 @@
+package ru.netology.i18n;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import ru.netology.entity.Country;
-import ru.netology.i18n.LocalizationServiceImpl;
 
 import java.util.stream.Stream;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 
 public class LocalizationServiceImplTest {
@@ -42,7 +42,6 @@ public class LocalizationServiceImplTest {
         final String actual = this.localizationService.locale(country);
 
         // assert
-        assertThat(actual, instanceOf(String.class));
         assertThat(expected, is(actual));
     }
 }
